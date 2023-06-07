@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nodejs-app
+  labels:
+    app: my-nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-nodejs
+  template:
+    metadata:
+      labels:
+        app: my-nodejs
+    spec:
+      containers:
+        - name: example
+          image: dkrunal31/sample-app
+          ports:
+            - containerPort: 8080
+
